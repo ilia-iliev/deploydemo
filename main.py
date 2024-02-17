@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
 from model import SentimentInference
 
 
@@ -6,8 +6,8 @@ app = FastAPI()
 inf = SentimentInference.load('f')
 
 
-@app.get("/{model}")
-async def infer_sentiment(film_review: str):
-    res = inf(film_review)
+@app.post("/sentiment")
+async def infer_sentiment(body:str =  Body(...)):
+    res = inf(body)
     response = "negative" if res == 0 else "positive"
     return {"sentiment": response}
