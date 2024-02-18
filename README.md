@@ -11,11 +11,11 @@ To setup cloud instance:
 4. install requirements\
 `python3 -m pip install -r requirements.txt`
 5. copy files:\
-`scp -i *YOUR PEM FILE* tokenizer.pkl model.pt ec2-user@ec2-YOUR IP ADDRESS.eu-north-1.compute.amazonaws.com:~/deploydemo/`
+`scp -i *YOUR PEM FILE LOCATION* tokenizer.pkl model.pt YOUR EC2 ADDRESS:~/deploydemo/`
 6. start app\
 `uvicorn main:app --port 8000 --host 0.0.0.0`
 
 Don't forget to add rule to allow HTTP requests since this is disabled by default
 
 To request:\
-`curl -X POST 'http://*SUBSTITUTE WITH IP ADDRES*:8000/sentiment' -H 'accept: application/json' -H "Content-Type: application/json" -d '"най-глупавият филм, който съм гледал"' `
+`curl -X POST 'http://YOUR EC2 IP ADDRESS:8000/sentiment' -H 'accept: application/json' -H "Content-Type: application/json" -d '{"text":"много як филм","username":"user"}'`
