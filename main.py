@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class Review(BaseModel):
     text: str
-    username: str | None = None
+    username: str
 
 app = FastAPI()
 inf = SentimentInference.load()
