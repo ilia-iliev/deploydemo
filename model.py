@@ -37,7 +37,7 @@ class SentimentClassifier(torch.nn.Module):
         encoder_layer = torch.nn.TransformerEncoderLayer(
             d_model=d_model,
             nhead=n_heads,
-            dim_feedforward=512,
+            dim_feedforward=128,
             batch_first=True
         )
         self.transformer_encoder = torch.nn.TransformerEncoder(
@@ -69,7 +69,7 @@ class SentimentInference():
         return res.argmax().item()
     
     @staticmethod
-    def load(folder: str):
+    def load():
         m = torch.load("model.pt")
         t = Tokenizer.load("tokenizer.pkl")
         return SentimentInference(m, t)
