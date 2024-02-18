@@ -32,6 +32,17 @@ class InputEmbeddings(torch.nn.Module):
 
 
 class SentimentClassifier(torch.nn.Module):
+    """
+    Implements a sentiment classifier using a transformer-based architecture.
+
+    Args:
+        d_model (int): The dimensionality of the input and output embeddings.
+        n_heads (int): The number of attention heads in the transformer encoder layers.
+        vocab_size (int): The size of the vocabulary.
+        seq_len (int): The maximum sequence length.
+
+    Returns:
+        torch.Tensor: The output tensor of shape (batch_size, 2), representing the predicted sentiment scores"""
     def __init__(self, d_model, n_heads, vocab_size, seq_len) -> None:
         super().__init__()
         encoder_layer = torch.nn.TransformerEncoderLayer(

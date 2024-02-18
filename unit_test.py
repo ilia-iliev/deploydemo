@@ -1,7 +1,7 @@
 from model import SentimentClassifier
 import torch
 
-def test_model_is_runnable():
+def test_model_is_callable():
     vocab_size=300
     batch = 4
     seq_len = 20
@@ -10,4 +10,4 @@ def test_model_is_runnable():
 
     res = model(inp)
     print(res)
-    assert res.shape == (4, 3)
+    assert res.shape == (4, 2)

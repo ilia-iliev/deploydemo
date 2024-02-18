@@ -7,6 +7,7 @@ def remove_multiple_whitespace(s):
     return re.sub(' +', ' ', s.lower())
 
 class Tokenizer():
+    # Implementation of Byte Pair Encoding tokenizer
     def __init__(self, num_tokens=350, min_occurances=10) -> None:
         self.token_ids = None
         self.n_tokens = num_tokens
