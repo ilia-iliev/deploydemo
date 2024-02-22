@@ -19,3 +19,6 @@ Don't forget to add rule to allow HTTP requests since this is disabled by defaul
 
 To request:\
 `curl -X POST 'http://YOUR EC2 IP ADDRESS:8000/sentiment' -H 'accept: application/json' -H "Content-Type: application/json" -d '{"text":"много як филм","username":"user"}'`
+
+
+https://www.linkedin.com/in/ilia-iliev-7903a015a/
